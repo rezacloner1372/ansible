@@ -1,0 +1,5 @@
+---
+- import_tasks: dep.yml
+- import_tasks: gpg.yml
+- import_tasks: addApt.yml
+- import_tasks: install.yml

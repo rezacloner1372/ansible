@@ -1,0 +1,5 @@
+---
+- name: nginxxx
+  hosts: blue_grp
+  roles:
+    - nginx

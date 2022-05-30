@@ -1,0 +1,32 @@
+---
+all:
+  hosts:
+    ansible.local.com:
+      ansible_host: 192.168.100.11
+      ansible_port: 22
+    awx.local.com:
+      ansible_host: 192.168.100.12
+      ansible_port: 22
+      ansible_user: root
+    gitlab.local.com:
+      ansible_host: 192.168.100.51
+      ansible_port: 22
+      ansible_user: root
+    ipa.local.com:
+      ansible_host: 192.168.100.52
+      ansible_port: 22
+      ansible_user: root
+
+  children:
+    green_grp:
+      hosts:
+        ansible.local.com:
+        awx.local.com:
+    blue_grp:
+      hosts:
+        gitlab.local.com:
+        ipa.local.com:
+    gray_grp:
+      hosts:
+        ansible.local.com:
+        gitlab.local.com:

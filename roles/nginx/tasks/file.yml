@@ -1,0 +1,16 @@
+---
+- name: create directory
+  file:
+    path: /tmp/test
+    state: directory
+    recurse: yes
+    owner: root
+    group: root
+
+- name: create temp file
+  file:
+    path: /tmp/test/test.txt
+    state: touch
+    owner: root
+    group: root
+    mode: 0644

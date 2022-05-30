@@ -1,0 +1,11 @@
+---
+- name: installa dependency
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - apt-transport-https
+    - ca-certificates
+    - gnupg-agent
+    - software-properties-common
