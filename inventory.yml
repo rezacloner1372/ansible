@@ -1,32 +1,32 @@
 ---
 all:
   hosts:
-    ansible.local.com:
+    node1:
       ansible_host: 192.168.100.11
       ansible_port: 22
-    awx.local.com:
+      ansible_user: root
+    ndoe2:
       ansible_host: 192.168.100.12
       ansible_port: 22
       ansible_user: root
-    gitlab.local.com:
+    node3:
       ansible_host: 192.168.100.51
       ansible_port: 22
       ansible_user: root
-    ipa.local.com:
+    node4:
       ansible_host: 192.168.100.52
       ansible_port: 22
       ansible_user: root
 
   children:
-    green_grp:
+    proxy:
       hosts:
-        ansible.local.com:
-        awx.local.com:
-    blue_grp:
+        node1:
+    webservers:
       hosts:
-        gitlab.local.com:
-        ipa.local.com:
+        node3:
+        node4:
     gray_grp:
       hosts:
-        ansible.local.com:
-        gitlab.local.com:
+        node1:
+        node4:
