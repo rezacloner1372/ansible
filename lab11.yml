@@ -1,0 +1,11 @@
+---
+- name: clean-tmp
+  hosts: node3
+  tasks:
+    - name: Create clean-tmp cron job
+      cron:
+        name: "clean-tmp"
+        user: "root"
+        job: rm -rf /tmp/*
+        minute: "0"
+        hour: "0"
